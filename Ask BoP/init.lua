@@ -28,13 +28,13 @@ local gLastMessage
 local cooldowns = {} -- [name] = {server, time_lastuse, time_lastreq, count_requests}
 
 aura_env.incrementRequestCount = function(name)
-    if name then
+    if name and cooldowns[name] then
         cooldowns[name][4] = cooldowns[name][4] + 1
     end    
 end
 
 aura_env.decrementRequestCount = function(name)
-    if name then
+    if name and cooldowns[name] then
         cooldowns[name][4] = cooldowns[name][4] - 1
     end
 end
@@ -77,12 +77,9 @@ aura_env.setCooldown = function(name, cooldown)
         return 
     end
     
-    for paladinName, values in pairs(cooldowns) do
-        if paladinName == name and cooldowns[name] then 
-            local cooldownEndTime = GetTime() + cooldown
-            cooldowns[name][2] = cooldownEndTime
-            break
-        end
+    if cooldowns and cooldowns[name] then
+        local cooldownEndTime = GetTime() + cooldown
+        cooldowns[name][2] = cooldownEndTime
     end
 end
 
