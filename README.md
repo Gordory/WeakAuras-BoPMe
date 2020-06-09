@@ -1,5 +1,7 @@
 # BoP Me (ask/give Blessing of Protection)
 
+Available at Wago: https://wago.io/CSOXiPYB8
+
 To ASK blessing of protection you must use this macro:
 `/run WeakAuras.ScanEvents("ASK_BOP")`
 
