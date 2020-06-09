@@ -1,3 +1,5 @@
+# BoP Me (ask/give Blessing of Protection)
+
 To ASK blessing of protection you must use this macro:
 `/run WeakAuras.ScanEvents("ASK_BOP")`
 
@@ -7,9 +9,9 @@ All credits for base WeakAura goes to: Buds#0500 @ Discord - https://wago.io/p/B
 
 update: 09/06/2020
 
-Features!
+### Features!
 
-For paladins:
+##### For paladins:
 
 1. It works out of the box!
 2. Icon and sound indication for asking BoP with class-colored name who asked it
@@ -20,7 +22,7 @@ For paladins:
 7. If you are tank or some extremely important person you can ask raiders to blacklist you in aura user-configs
 
 
-For raid-members:
+##### For raid-members:
 
 1. You need to make request macros with /run WeakAuras.ScanEvents("ASK_BOP")
 2. Indication of request. Icon with name who got this request
