@@ -85,17 +85,25 @@ end
 
 aura_env.isForbearanceActive = function(unitId)
     for i=1,40 do
-        name,_,_,_,_,_,_,_,_,spellId = UnitDebuff(unitId, i)
+        local name,_,_,_,_,_,_,_,_,spellId = UnitDebuff(unitId, i)
+        if not name then 
+            break
+        end
+
         if spellId == aura_env.forbearanceSpellId then
             return true
         end
-        return false
     end
+    return false
 end
 
 aura_env.isBopActive = function(unitId)
     for i=1,40 do
-        name,_,_,_,_,_,_,_,_,spellId = UnitBuff(unitId, i)
+        local name,_,_,_,_,_,_,_,_,spellId = UnitBuff(unitId, i)
+        if not name then 
+            break
+        end
+
         if spellId == aura_env.bopSpellIdR1
         or spellId == aura_env.bopSpellIdR2
         or spellId == aura_env.bopSpellIdR2 then
@@ -168,8 +176,8 @@ aura_env.getCooldownFromMessage = function(message)
     
     local index,length = string.find(message, phrasePrefix)
     local start = index + length
-    index,_ = string.find(message, "secs")
-    local cd = string.sub(message, start, index-1)
+    local secondsIndex,_ = string.find(message, "secs")
+    local cd = string.sub(message, start, secondsIndex-1)
     return cd
 end
 
